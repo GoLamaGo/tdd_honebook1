@@ -26,7 +26,12 @@ public class PhoneBook {
     }
 
     public String printAllNames() {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        phonebook.forEach((k, v) -> {
+            stringBuilder.append(k).append(" : ").append(v).append("\n");
+        });
+        System.out.println(stringBuilder);
+        return stringBuilder.toString();
     }
 
 }
