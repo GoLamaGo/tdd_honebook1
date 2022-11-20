@@ -19,7 +19,10 @@ public class PhoneBook {
     }
 
     public Map<String, Long> findByName(String name) {
-        return null;
+        return Stream.of(phonebook)
+                .filter(x -> x.containsKey(name))
+                .findFirst()
+                .orElse(null);
     }
 
 }
