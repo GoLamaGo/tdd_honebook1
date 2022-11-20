@@ -18,4 +18,8 @@ public class PhoneBook {
                 .orElse(null);
     }
 
+    public Map<String, Long> findByName(String name) {
+        return null;
+    }
+
 }

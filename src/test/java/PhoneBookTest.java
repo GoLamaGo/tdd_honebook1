@@ -35,4 +35,13 @@ public class PhoneBookTest {
         assertEquals(Map.of(name, phone), phoneBook.findByNumber(phone));
     }
 
+    @Test
+    public void findByNameReturnsPhone() {
+        PhoneBook phoneBook = new PhoneBook();
+        String name = "Jon";
+        long phone = 89031112233L;
+        phoneBook.add(name, phone);
+        assertEquals(Map.of(name, phone), phoneBook.findByName(name));
+    }
+
 }
