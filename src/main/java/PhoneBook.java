@@ -25,4 +25,8 @@ public class PhoneBook {
                 .orElse(null);
     }
 
+    public String printAllNames() {
+        return null;
+    }
+
 }

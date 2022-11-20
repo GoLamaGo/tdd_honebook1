@@ -1,9 +1,8 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PhoneBookTest {
 
@@ -12,6 +11,7 @@ public class PhoneBookTest {
         PhoneBook phoneBook = new PhoneBook();
         String name = "Jon";
         long phone = 89031114422L;
+
         assertEquals(1, phoneBook.add(name, phone), "Должен вернуться один номер");
     }
 
@@ -31,8 +31,10 @@ public class PhoneBookTest {
         PhoneBook phoneBook = new PhoneBook();
         String name = "Jon";
         long phone = 89031112222L;
+
         phoneBook.add(name, phone);
-        assertEquals(Map.of(name, phone), phoneBook.findByNumber(phone));
+
+        assertEquals(Map.of(name, phone), phoneBook.findByNumber(phone), "Найден контакт по номеру");
     }
 
     @Test
@@ -40,8 +42,25 @@ public class PhoneBookTest {
         PhoneBook phoneBook = new PhoneBook();
         String name = "Jon";
         long phone = 89031112233L;
+
         phoneBook.add(name, phone);
-        assertEquals(Map.of(name, phone), phoneBook.findByName(name));
+
+        assertEquals(Map.of(name, phone), phoneBook.findByName(name), "Найден контакт по имени");
+    }
+
+    @Test
+    public void printAllNamesTest() {
+        PhoneBook phoneBook = new PhoneBook();
+        String name1 = "Jon";
+        String name2 = "Michael";
+        String name3 = "Max";
+        long phone = 89031112233L;
+
+        phoneBook.add(name1, phone);
+        phoneBook.add(name2, phone);
+        phoneBook.add(name3, phone);
+
+        assertFalse(phoneBook.printAllNames().isEmpty(), "В списке что-то выводится в каком-то формате");
     }
 
 }
