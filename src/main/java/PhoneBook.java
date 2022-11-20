@@ -12,7 +12,10 @@ public class PhoneBook {
     }
 
     public Map<String, Long> findByNumber(long phone) {
-        return null;
+        return Stream.of(phonebook)
+                .filter(x -> x.containsValue(phone))
+                .findFirst()
+                .orElse(null);
     }
 
 }
